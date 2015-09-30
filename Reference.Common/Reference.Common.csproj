@@ -40,8 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\Data\IEntity.cs" />
+    <Compile Include="Contracts\Data\IEntityWithId.cs" />
+    <Compile Include="Contracts\Data\IQueryIncludes.cs" />
+    <Compile Include="Contracts\Data\IQueryIncludesFactory.cs" />
+    <Compile Include="Contracts\Data\ITimestamp.cs" />
+    <Compile Include="Contracts\Data\ITransaction.cs" />
+    <Compile Include="Contracts\Data\IVersioned.cs" />
+    <Compile Include="Contracts\Data\IVersionedEntityWithId.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
