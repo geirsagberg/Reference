@@ -4,6 +4,7 @@ using System.Data.Common;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Migrations;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Data.Entity.SqlServer;
 using System.Data.Entity.Validation;
 using System.Diagnostics;
@@ -28,7 +29,7 @@ namespace Reference.Data
 
         static EntityContext()
         {
-            // Disable automatic creation of database
+            // To stop EF from creating a merged initial migration when creating database.
             Database.SetInitializer<EntityContext>(null);
         }
 
@@ -279,8 +280,9 @@ namespace Reference.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            MapTypesToTable(modelBuilder);
             base.OnModelCreating(modelBuilder);
+            MapTypesToTable(modelBuilder);
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
     }
 }

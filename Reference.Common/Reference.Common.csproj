@@ -40,8 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\Data\ICreated.cs" />
     <Compile Include="Contracts\Data\IEntity.cs" />
     <Compile Include="Contracts\Data\IEntityWithId.cs" />
+    <Compile Include="Contracts\Data\IModified.cs" />
     <Compile Include="Contracts\Data\IQueryIncludes.cs" />
     <Compile Include="Contracts\Data\IQueryIncludesFactory.cs" />
     <Compile Include="Contracts\Data\ITimestamp.cs" />
