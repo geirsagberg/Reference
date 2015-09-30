@@ -69,5 +69,9 @@ namespace Reference.Common.Extensions
         {
             return enumerable == null || !enumerable.Any();
         }
+
+
+        public static IEnumerable<T> WhereIf<T>(this IEnumerable<T> enumerable, bool condition, Func<T, bool> whereClause)
+            => condition ? enumerable.Where(whereClause) : enumerable;
     }
 }

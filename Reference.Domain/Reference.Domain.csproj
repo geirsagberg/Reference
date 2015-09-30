@@ -40,7 +40,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\NoPluralAttribute.cs" />
+    <Compile Include="Attributes\PluralAttribute.cs" />
+    <Compile Include="Attributes\SkipTableAttribute.cs" />
+    <Compile Include="Entities\EntityBase.cs" />
+    <Compile Include="Entities\Kjøp.cs" />
+    <Compile Include="Entities\Person.cs" />
+    <Compile Include="Entities\Vare.cs" />
+    <Compile Include="Entities\VareLinje.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\EntityReflector.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Reference.Common\Reference.Common.csproj">
+      <Project>{3569B793-C803-4FFA-BAA5-255A9AFF23FC}</Project>
+      <Name>Reference.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
