@@ -13,6 +13,7 @@ autocrlf = true
 - Norske domenenavn med PascalCase (for å gjøre Intellisense lettere): `FilData`, `BygningsNr`
 - "Nr" i domenet for Nummer
 - "Id" med stor I, liten d
+- Controllers og Views kan ikke ha æøå
 
 ## Migrering
 
