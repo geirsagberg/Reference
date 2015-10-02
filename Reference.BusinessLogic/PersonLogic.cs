@@ -8,8 +8,11 @@ namespace Reference.BusinessLogic
 {
     public class PersonLogic : IPersonLogic
     {
-        public PersonLogic(IEntityContext context)
+        private readonly ILog log;
+
+        public PersonLogic(IEntityContext context, ILog log)
         {
+            this.log = log;
             Context = context;
         }
 
@@ -17,6 +20,7 @@ namespace Reference.BusinessLogic
 
         public IReadOnlyList<Person> GetAll()
         {
+            log.Debug("GetAll called from {SourceContext}");
             return Context.GetAll<Person>().ToList();
         }
     }

@@ -1,4 +1,5 @@
-﻿using Serilog;
+﻿using Reference.Common.Contracts;
+using Reference.Common.Utils;
 
 namespace Reference.Common.Extensions
 {
@@ -11,9 +12,9 @@ namespace Reference.Common.Extensions
 
         //TODO: LogError, LogWarn etc.
 
-        private static ILogger GetLogger(object obj)
+        private static ILog GetLogger(object obj)
         {
-            return Log.Logger.ForContext(obj.GetType());
+            return new SeriLogger(obj.GetType());
         }
     }
 }

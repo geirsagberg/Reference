@@ -94,6 +94,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommonModule.cs" />
     <Compile Include="DataModule.cs" />
     <Compile Include="LightInject\LightInject.cs" />
     <Compile Include="LightInject\Mvc\LightInject.Mvc.cs" />
