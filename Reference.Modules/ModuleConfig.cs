@@ -15,10 +15,10 @@ namespace Reference.Modules
 
         private static ServiceContainer Container => _container.Value;
 
-        private static void RegisterTypes(ServiceContainer container)
+        private static void RegisterTypes(IServiceRegistry container)
         {
             // Registers all ICompostionRoot implementations in this assembly
-            container.AssemblyScanner.Scan(Assembly.GetExecutingAssembly(), container);
+            container.RegisterAssembly(Assembly.GetExecutingAssembly());
         }
 
         public static void EnableMvc()

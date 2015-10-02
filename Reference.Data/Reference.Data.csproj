@@ -70,6 +70,10 @@
     </Compile>
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Mappings\EntityContext_Mappings.cs" />
+    <Compile Include="Migrations\201510021156238_Initial_migration.cs" />
+    <Compile Include="Migrations\201510021156238_Initial_migration.Designer.cs">
+      <DependentUpon>201510021156238_Initial_migration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryIncludes.cs" />
@@ -97,6 +101,11 @@
       <Project>{27a46069-a0e6-40ed-8e89-59db2004ee48}</Project>
       <Name>Reference.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201510021156238_Initial_migration.resx">
+      <DependentUpon>201510021156238_Initial_migration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

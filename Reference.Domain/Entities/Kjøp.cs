@@ -11,6 +11,6 @@ namespace Reference.Domain.Entities
         public DateTimeOffset? Opprettet { get; set; }
         public DateTimeOffset? Endret { get; set; }
         public virtual Person Person { get; set; }
-        public virtual ISet<VareLinje> Varer { get; set; }
+        public virtual ISet<VareLinje> VareLinjer { get; set; }
     }
 }

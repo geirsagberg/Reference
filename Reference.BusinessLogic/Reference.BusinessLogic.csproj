@@ -40,7 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IPersonLogic.cs" />
+    <Compile Include="PersonLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Reference.Common\Reference.Common.csproj">
+      <Project>{3569B793-C803-4FFA-BAA5-255A9AFF23FC}</Project>
+      <Name>Reference.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Reference.Domain\Reference.Domain.csproj">
+      <Project>{27A46069-A0E6-40ED-8E89-59DB2004EE48}</Project>
+      <Name>Reference.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

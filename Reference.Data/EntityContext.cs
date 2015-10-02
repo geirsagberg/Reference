@@ -30,7 +30,7 @@ namespace Reference.Data
         static EntityContext()
         {
             // To stop EF from creating a merged initial migration when creating database.
-            Database.SetInitializer<EntityContext>(null);
+            //Database.SetInitializer<EntityContext>(null);
         }
 
         public EntityContext() : base("EntityContext")

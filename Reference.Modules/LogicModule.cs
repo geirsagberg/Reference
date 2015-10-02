@@ -1,13 +1,13 @@
-﻿using Reference.Data;
+﻿using Reference.BusinessLogic;
 using Reference.Modules.LightInject;
 
 namespace Reference.Modules
 {
-    internal class DataModule : ICompositionRoot
+    internal class LogicModule : ICompositionRoot
     {
         public void Compose(IServiceRegistry serviceRegistry)
         {
-            serviceRegistry.RegisterAssembly(typeof (EntityContext).Assembly);
+            serviceRegistry.RegisterAssembly(typeof (PersonLogic).Assembly);
         }
     }
 }
