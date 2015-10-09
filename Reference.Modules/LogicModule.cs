@@ -1,4 +1,4 @@
-﻿using Reference.BusinessLogic;
+﻿using Reference.BusinessLogic.Logic;
 using Reference.Modules.LightInject;
 
 namespace Reference.Modules

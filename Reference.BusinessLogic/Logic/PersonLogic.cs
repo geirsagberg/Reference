@@ -4,19 +4,16 @@ using Reference.BusinessLogic.Contracts;
 using Reference.Common.Contracts;
 using Reference.Domain.Entities;
 
-namespace Reference.BusinessLogic
+namespace Reference.BusinessLogic.Logic
 {
-    public class PersonLogic : IPersonLogic
+    public class PersonLogic : LogicBase, IPersonLogic
     {
         private readonly ILog log;
 
-        public PersonLogic(IEntityContext context, ILog log)
+        public PersonLogic(IEntityContext context, ILog log) : base(context)
         {
             this.log = log;
-            Context = context;
         }
-
-        public IEntityContext Context { get; set; }
 
         public IReadOnlyList<Person> GetAll()
         {

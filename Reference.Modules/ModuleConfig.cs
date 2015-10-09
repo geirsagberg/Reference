@@ -34,21 +34,14 @@ namespace Reference.Modules
             Container.EnableWebApi(config);
         }
 
-        public static void RegisterPerContainerLifetime<T1, T2>()
-        {
-            Container.Register(typeof (T1), typeof (T2), new PerContainerLifetime());
-        }
-
-        public static void RegisterPerContainerLifetime<T>()
-        {
-            Container.Register(typeof (T), new PerContainerLifetime());
-        }
+        public static void RegisterSingleton<T1, T2>() where T2 : T1 => Container.Register<T1, T2>(new PerContainerLifetime());
+        public static void RegisterSingleton<T>() => Container.Register<T>(new PerContainerLifetime());
+        public static void RegisterTransient<T1, T2>() where T2 : T1 => Container.Register<T1, T2>();
+        public static void RegisterTransient<T1>() => Container.Register<T1>();
+        public static void RegisterScoped<T1, T2>() where T2 : T1 => Container.Register<T1, T2>(new PerScopeLifetime());
+        public static void RegisterScoped<T1>() => Container.Register<T1>(new PerScopeLifetime());
+        public static void RegisterInstance<T>(object instance) => Container.RegisterInstance(typeof (T), instance);
 
         public static T GetInstance<T>() => Container.GetInstance<T>();
-
-        public static void RegisterInstance<T>(object instance)
-        {
-            Container.RegisterInstance(typeof (T), instance);
-        }
     }
 }

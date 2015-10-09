@@ -22,13 +22,50 @@ namespace Reference.Common.Extensions
             return entity;
         }
 
-        public static int DoInAutoSavingTransaction(this IEntityContext context, Action action)
+        public static int DoInAutoSavingTransaction(this IEntityContext context, Action<IEntityContext> action)
         {
             using (var transaction = context.BeginTransaction()) {
-                action();
+                action(context);
                 var status = context.SaveChanges();
                 transaction.Complete();
                 return status;
+            }
+        }
+
+        public static T DoInAutoSavingTransaction<T>(this IEntityContext context, Func<IEntityContext, T> action) where T : IEntity
+        {
+            using (var transaction = context.BeginAutoSavingTransaction()) {
+                var result = action(context);
+                transaction.Complete();
+                return result;
+            }
+        }
+
+        public static ITransaction BeginAutoSavingTransaction(this IEntityContext repo)
+        {
+            return new AutoSavingTransaction(repo);
+        }
+
+        private class AutoSavingTransaction : ITransaction
+        {
+            private readonly IEntityContext _repo;
+            private readonly ITransaction _trans;
+
+            public AutoSavingTransaction(IEntityContext repo)
+            {
+                _repo = repo;
+                _trans = repo.BeginTransaction();
+            }
+
+            public void Dispose()
+            {
+                _trans.Dispose();
+            }
+
+            public void Complete()
+            {
+                _repo.SaveChanges();
+                _trans.Complete();
             }
         }
     }
